@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {GoogleService} from '../services/google.service';
 
 declare var jquery: any;
 declare var $: any;
@@ -8,9 +9,9 @@ declare var $: any;
     templateUrl: './mapinfo.component.html',
     styleUrls: ['./mapinfo.component.scss']
 })
-export class MapinfoComponent {
+export class MapinfoComponent implements OnInit{
 
-    constructor() {
+    constructor(private googleService: GoogleService) {
     }
 
 
@@ -22,7 +23,10 @@ export class MapinfoComponent {
     origin = '';  // its a example aleatory position
     destination = '';  // its a example aleatory position
     travelMode = '';
+    vehicle: string;
+    result: any;
 
+    routes: any;
 
     hae() {
         this.locationChosen = true;
@@ -47,10 +51,15 @@ export class MapinfoComponent {
         // this.travelMode =
     }
 
-/*
+
     ngOnInit() {
-    $(document).foundation();
-}
-*/
-}
+        this.googleService.getVehicle(this.vehicle).subscribe(response => {
+            console.log(response.data['routes']);
+            this.result = response.data['routes'];
+            // this.lat = response.data['stops'][0].lat;
+            // this.lon = response.data['stops'][0].lon;
+        });
+    }
+ }
+
 

@@ -53,6 +53,7 @@ body {
   }
 }
 
+
 @mixin circle-graph-circle($size) {
   content: "";
   position: absolute;
@@ -131,11 +132,4 @@ $circle-graph-fill-color: $primary-color;
     line-height: 1;
   }
 }
-
-
-
-
-
-
-
 

@@ -12,6 +12,8 @@ import {NavigationbarComponent} from './navigationbar/navigationbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { routes } from './app.router';
 import { PageinfoComponent } from './pageinfo/pageinfo.component';
+import { GoogleService } from './services/google.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -31,10 +33,11 @@ import { PageinfoComponent } from './pageinfo/pageinfo.component';
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyBXbailwqmTQL47FL9BsaLDkaViXvwpvL0'
         }),
-        routes
+        routes,
+        HttpClientModule
 
     ],
-    providers: [],
+    providers: [GoogleService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
