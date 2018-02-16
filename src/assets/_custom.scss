@@ -1,0 +1,8 @@
+$primary-color: #CAE2BC;
+$nav-background: #b5c5b3;
+$button-color: #88b568;
+
+@function rem-calc($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
